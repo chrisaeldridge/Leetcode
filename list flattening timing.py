@@ -2,16 +2,19 @@ import timeit
 from itertools import chain
 
 def f1(l, numRows):
+    # flatten using nested join
     for i in range(numRows):
         l[i] = ''.join(l[i])
     l = ''.join(l)
     return l
 
 def f2(l):
+    #flatten using list comprehention
     l = ''.join([ x for xs in l for x in xs])
     return l
 
 def f3(l):
+    #flatten using chain iterator
     l = ''.join(list(chain.from_iterable(l)))
     return l
 
